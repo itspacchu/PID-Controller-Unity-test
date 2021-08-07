@@ -12,6 +12,8 @@ public class LineFollow : MonoBehaviour
 
     public float scandir = 1f;
 
+    [SerializeField] float PropGain;
+
     public LayerMask ll;
 
     private Vector3 Lhit;
@@ -38,7 +40,7 @@ public class LineFollow : MonoBehaviour
             Lhit = hitL.point;
             if(hitL.collider.gameObject.name == "line")
             {
-                cc.AIhori += 0.025f;
+                cc.AIhori += PropGain;
                 if(cc.AIverti >= 0.2f)
                 {
                     cc.AIverti -= 0.025f;
@@ -86,7 +88,7 @@ public class LineFollow : MonoBehaviour
             Rhit = hitR.point;
             if(hitR.collider.gameObject.name == "line")
             {
-                cc.AIhori -= 0.025f;
+                cc.AIhori -= PropGain;
                 if (cc.AIverti >= 0.2f)
                 {
                     cc.AIverti -= 0.025f;
